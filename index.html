@@ -56,13 +56,8 @@
   .btn.ghost{color:var(--ink)}
   .btn.ghost:hover{background:#fff}
 
-  /* The paper-strip bridge — the one bold element */
-  .bridge svg{width:100%;height:auto}
-  .strip{transform-origin:center;opacity:0;animation:lay .7s ease-out forwards}
-  .strip:nth-child(2){animation-delay:.12s}.strip:nth-child(3){animation-delay:.24s}
-  .strip:nth-child(4){animation-delay:.36s}.strip:nth-child(5){animation-delay:.48s}
-  @keyframes lay{from{opacity:0;transform:translateY(12px) rotate(-2deg)}to{opacity:1;transform:none}}
-  @media (prefers-reduced-motion:reduce){.strip{animation:none;opacity:1}}
+  /* Bridge area image styling */
+  .bridge img{width:100%;height:auto;border-radius:6px;display:block}
 
   .photo{margin-top:3rem;aspect-ratio:16/7;background:repeating-linear-gradient(45deg,#e2e7da 0 14px,#e8ece1 14px 28px);border:2px dashed var(--line);border-radius:6px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--muted);padding:1rem}
 
@@ -160,23 +155,11 @@
           <a class="btn ghost" href="#story">Read our story</a>
         </div>
       </div>
-      <div class="bridge" aria-hidden="true">
-        <!-- Paper-strip bridge: two sides joined by layered strips -->
-        <svg viewBox="0 0 400 260" xmlns="http://www.w3.org/2000/svg">
-          <g>
-            <path class="strip" d="M20 220 Q200 20 380 220" fill="none" stroke="#2E7D78" stroke-width="26" stroke-linecap="round"/>
-            <path class="strip" d="M40 222 Q200 60 360 222" fill="none" stroke="#F2B632" stroke-width="20" stroke-linecap="round"/>
-            <path class="strip" d="M62 224 Q200 100 338 224" fill="none" stroke="#7A3E65" stroke-width="16" stroke-linecap="round"/>
-            <rect class="strip" x="10" y="214" width="380" height="18" rx="4" fill="#1F2A44"/>
-            <g class="strip">
-              <circle cx="58" cy="190" r="14" fill="#1F2A44"/>
-              <circle cx="342" cy="190" r="14" fill="#1F2A44"/>
-            </g>
-          </g>
-        </svg>
+      <div class="bridge">
+        <!-- SVG bridge graphic replaced with main_pic.png -->
+        <img src="main_pic.png" alt="Youth and older adults creating together">
       </div>
     </div>
-    <!-- Replace this box with a real photo: <img src="images/hero.jpg" alt="Youth and older adults painting together at a shared table"> -->
     <img src="main_pic.png" alt="Youth and older adults creating together" style="width: 100%; border-radius: 6px; margin-top: 3rem;">
   </div>
 </section>
@@ -267,7 +250,6 @@
         <p>Ask the youth: what did you learn from the person you worked with?</p>
       </details>
     </article>
-    <!-- Copy the <article class="activity"> block above to add more activities -->
     <p class="more">More activity guides are on the way.</p>
   </div>
 </section>
@@ -305,7 +287,6 @@
 <section id="voices">
   <div class="wrap">
     <h2>What we learned</h2>
-    <!-- Replace these with real quotes from your youth participants -->
     <div class="quotes">
       <blockquote>I came to teach, but I ended up learning.</blockquote>
       <blockquote>I realized we had more in common than I expected.</blockquote>
@@ -329,8 +310,6 @@
   <div class="wrap">
     <h2>Resources</h2>
     <p>Free printable guides for youth groups and senior living communities.</p>
-    <!-- When a PDF is ready, put it in a /files folder and replace the span with:
-         <a href="files/youth-facilitator-guide.pdf" download>Download PDF</a> -->
     <ul class="files">
       <li>Youth facilitator guide <span class="soon">Coming soon</span></li>
       <li>Activity planning worksheet <span class="soon">Coming soon</span></li>
@@ -347,7 +326,6 @@
 <footer>
   <div class="wrap">
     <p>Bridges Through Art — creating, connecting, and learning across generations.</p>
-    <!-- Replace with your real contact email -->
     <p>Want to partner with us? <a href="mailto:hello@example.com">hello@example.com</a></p>
   </div>
 </footer>
