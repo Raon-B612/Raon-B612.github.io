@@ -43,21 +43,51 @@
   .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
   .nav a.link:hover{color:var(--plum)}
 
-  /* Hero */
+  /* Hero with Image Overlay */
   .hero{padding:4.5rem 0 3rem;border-top:0}
-  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
-  .hero h1{font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.01em;margin-bottom:.3em}
-  .hero .tag{font-size:1.35rem;color:var(--muted);max-width:30ch}
-  .hero .sub{color:var(--muted)}
+  .hero-banner {
+    position: relative;
+    background-image: url('main_pic.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 16px;
+    padding: 5rem 3rem;
+    color: #ffffff;
+    overflow: hidden;
+  }
+  /* 그림 위 글자의 가독성을 높이기 위해 어두운 배경 오버레이 추가 */
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(31, 42, 68, 0.75); 
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+  }
+  .hero-banner h1 {
+    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    letter-spacing: -.01em;
+    margin-bottom: .3em;
+    color: #ffffff;
+  }
+  .hero-banner .tag {
+    font-size: 1.35rem;
+    color: #f0f4f8;
+    max-width: 35ch;
+  }
+  .hero-banner .sub {
+    color: #d9dee8;
+  }
   .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
-  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
-  .btn.primary{background:var(--ink);color:#fff}
-  .btn.primary:hover{background:var(--plum);border-color:var(--plum)}
-  .btn.ghost{color:var(--ink)}
-  .btn.ghost:hover{background:#fff}
-
-  /* Bridge image replacement */
-  .bridge img{width:100%;height:auto;border-radius:8px;display:block}
+  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #ffffff}
+  .btn.primary{background:#ffffff;color:var(--ink)}
+  .btn.primary:hover{background:var(--marigold);border-color:var(--marigold);color:var(--ink)}
+  .btn.ghost{color:#ffffff;border-color:#ffffff}
+  .btn.ghost:hover{background:rgba(255,255,255,0.1)}
 
   /* Story */
   .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;padding:0;list-style:none}
@@ -113,10 +143,10 @@
   footer a{color:var(--marigold)}
 
   @media (max-width:800px){
-    .hero-grid,.two,.change{grid-template-columns:1fr}
-    .bridge{order:-1;max-width:420px}
+    .two,.change{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .activity{padding:1.4rem}
+    .hero-banner { padding: 3rem 1.5rem; }
   }
 </style>
 </head>
@@ -140,11 +170,11 @@
 
 <main id="top">
 
-<!-- HOME -->
+<!-- HOME (Image Overlay Banner) -->
 <section class="hero">
   <div class="wrap">
-    <div class="hero-grid">
-      <div>
+    <div class="hero-banner">
+      <div class="hero-content">
         <h1>Bridges Through Art</h1>
         <p class="tag">Creating connections across generations, one creative activity at a time.</p>
         <p class="sub">A youth-led toolkit for meaningful intergenerational engagement, inspired by our time with older adults in senior living communities.</p>
@@ -152,9 +182,6 @@
           <a class="btn primary" href="#toolkit">Explore the toolkit</a>
           <a class="btn ghost" href="#story">Read our story</a>
         </div>
-      </div>
-      <div class="bridge">
-        <img src="main_pic.png" alt="Youth and older adults creating together">
       </div>
     </div>
   </div>
