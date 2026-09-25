@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bridges Through Art — A youth-led intergenerational toolkit</title>
+<meta name="description" content="A youth-led toolkit for meaningful intergenerational engagement through creative activities with older adults.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF1E8;      /* sage paper */
+    --card:#FFFFFF;
+    --ink:#1F2A44;        /* navy ink */
+    --muted:#4E5A70;
+    --marigold:#F2B632;
+    --plum:#7A3E65;
+    --teal:#2E7D78;
+    --line:#C9D1C0;
+    --serif:"Young Serif", Georgia, "Times New Roman", serif;
+    --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+  body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.65 var(--sans)}
+  img{max-width:100%;display:block}
+  a{color:var(--teal)}
+  a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:4px}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0 0 .5em}
+  h2{font-size:clamp(1.9rem,4vw,2.6rem)}
+  h3{font-size:1.35rem}
+  p{margin:0 0 1em;max-width:66ch}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 1.5rem}
+  section{padding:5rem 0;border-top:1px solid var(--line)}
+
+  /* Nav */
+  header.nav{position:sticky;top:0;z-index:10;background:rgba(238,241,232,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.8rem;padding-bottom:.8rem;flex-wrap:wrap}
+  .brand{font-family:var(--serif);font-size:1.2rem;color:var(--ink);text-decoration:none}
+  .nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0;flex-wrap:wrap}
+  .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
+  .nav a.link:hover{color:var(--plum)}
+
+  /* Hero */
+  .hero{padding:4.5rem 0 3rem;border-top:0}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:3rem;align-items:center}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.2rem);letter-spacing:-.01em;margin-bottom:.3em}
+  .hero .tag{font-size:1.35rem;color:var(--muted);max-width:30ch}
+  .hero .sub{color:var(--muted)}
+  .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
+  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
+  .btn.primary{background:var(--ink);color:#fff}
+  .btn.primary:hover{background:var(--plum);border-color:var(--plum)}
+  .btn.ghost{color:var(--ink)}
+  .btn.ghost:hover{background:#fff}
+
+  /* Bridge image replacement */
+  .bridge img{width:100%;height:auto;border-radius:8px;display:block}
+
+  /* Story */
+  .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;padding:0;list-style:none}
+  .facts li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-weight:500}
+  .facts strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-right:.3rem;color:var(--plum)}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+
+  /* Steps (a real sequence, so numbered) */
+  .steps{list-style:none;counter-reset:s;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
+  .steps li{counter-increment:s;background:#fff;border-left:5px solid var(--teal);padding:1rem 1.1rem;border-radius:2px}
+  .steps li::before{content:counter(s);font-family:var(--serif);font-size:1.6rem;color:var(--teal);display:block;line-height:1}
+  .steps b{display:block;margin:.35rem 0 .2rem}
+  .steps span{color:var(--muted);font-size:.95rem}
+
+  /* Activity guide */
+  .activity{background:#fff;border:1px solid var(--line);border-radius:10px;padding:2rem;margin-top:2rem}
+  .meta{display:flex;flex-wrap:wrap;gap:1.5rem;margin:.2rem 0 1.4rem;color:var(--muted);font-size:.95rem}
+  .meta b{color:var(--ink)}
+  details{border-top:1px solid var(--line);padding:.9rem 0}
+  details:last-of-type{border-bottom:1px solid var(--line)}
+  summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";font-family:var(--serif);font-size:1.3rem;line-height:1;color:var(--plum)}
+  details[open] summary::after{content:"–"}
+  details ul,details ol{margin:.8rem 0 .2rem;padding-left:1.3rem}
+  .prompt{font-family:var(--serif);font-size:1.1rem;margin:.6rem 0;padding-left:1rem;border-left:3px solid var(--marigold)}
+  .more{margin-top:1.5rem;color:var(--muted)}
+
+  /* Youth guide */
+  .principle{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.2rem);background:var(--ink);color:#fff;padding:2rem;border-radius:10px;margin:2rem 0 2.5rem;max-width:none}
+  .dodont h3{display:flex;align-items:center;gap:.5rem}
+  .dodont ul{padding-left:1.2rem;margin:0}
+  .dodont li{margin-bottom:.4rem}
+  .do h3{color:var(--teal)} .dont h3{color:var(--plum)}
+
+  /* Voices */
+  .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
+  blockquote{margin:0;background:#fff;padding:1.5rem;border-radius:10px;font-family:var(--serif);font-size:1.2rem;line-height:1.4;border-top:6px solid var(--marigold)}
+  blockquote:nth-child(2){border-top-color:var(--teal)}
+  blockquote:nth-child(3){border-top-color:var(--plum)}
+  .change{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
+  .change div{padding:1.4rem;border-radius:10px}
+  .before{background:#E1E6DA}.after{background:#fff;border:2px solid var(--teal)}
+  .change h3{font-size:1.05rem;font-family:var(--sans);font-weight:700;margin-bottom:.4rem}
+
+  /* Resources */
+  .files{list-style:none;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.8rem}
+  .files li{background:#fff;border:1px solid var(--line);border-radius:8px;padding:1rem 1.1rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+  .soon{font-size:.85rem;color:var(--muted);white-space:nowrap}
+
+  footer{background:var(--ink);color:#D9DEE8;padding:3rem 0}
+  footer p{margin:0 0 .4rem}
+  footer a{color:var(--marigold)}
+
+  @media (max-width:800px){
+    .hero-grid,.two,.change{grid-template-columns:1fr}
+    .bridge{order:-1;max-width:420px}
+    section{padding:3.5rem 0}
+    .activity{padding:1.4rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top">Bridges Through Art</a>
+    <nav aria-label="Main">
+      <ul>
+        <li><a class="link" href="#story">Our story</a></li>
+        <li><a class="link" href="#toolkit">Toolkit</a></li>
+        <li><a class="link" href="#activities">Activities</a></li>
+        <li><a class="link" href="#guide">Youth guide</a></li>
+        <li><a class="link" href="#voices">Youth voices</a></li>
+        <li><a class="link" href="#resources">Resources</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HOME -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+      <div>
+        <h1>Bridges Through Art</h1>
+        <p class="tag">Creating connections across generations, one creative activity at a time.</p>
+        <p class="sub">A youth-led toolkit for meaningful intergenerational engagement, inspired by our time with older adults in senior living communities.</p>
+        <div class="btns">
+          <a class="btn primary" href="#toolkit">Explore the toolkit</a>
+          <a class="btn ghost" href="#story">Read our story</a>
+        </div>
+      </div>
+      <div class="bridge">
+        <img src="main_pic.png" alt="Youth and older adults creating together">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUR STORY -->
+<section id="story">
+  <div class="wrap two">
+    <div>
+      <h2>How it started</h2>
+      <p>A group of young people walked into senior living communities with art supplies, activity ideas, and a wish to connect with older adults.</p>
+      <p>Across the sessions, we found the activities were about more than making art. They gave us reasons to talk, share memories, trade perspectives, and learn from each other. Those relationships became the foundation for this toolkit.</p>
+    </div>
+    <div>
+      <h3>The project at a glance</h3>
+      <ul class="facts">
+        <li><strong>11</strong>sessions</li>
+        <li><strong>2</strong>senior living communities</li>
+        <li>Youth-led</li>
+        <li>Arts &amp; crafts</li>
+        <li>Intergenerational conversations</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLKIT -->
+<section id="toolkit">
+  <div class="wrap">
+    <h2>Start your own program</h2>
+    <p>You don't need experience to begin. These are the steps we followed, from finding a partner to reflecting afterwards.</p>
+    <ol class="steps">
+      <li><b>Find a community partner</b><span>Contact a local senior living community's activities director.</span></li>
+      <li><b>Recruit youth participants</b><span>Friends, classmates, clubs, or a youth group.</span></li>
+      <li><b>Choose an activity</b><span>Pick one from the activity guides below.</span></li>
+      <li><b>Prepare materials</b><span>Bring extras, and plan for different abilities.</span></li>
+      <li><b>Meet your partners</b><span>Introductions first; the craft can wait.</span></li>
+      <li><b>Create together</b><span>Work side by side, not for someone.</span></li>
+      <li><b>Reflect together</b><span>What did you learn from each other?</span></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section id="activities">
+  <div class="wrap">
+    <h2>Activity guides</h2>
+    <p>Each guide is ready to use: what to bring, how to run it, and questions that get conversations going.</p>
+
+    <article class="activity">
+      <h3>Collaborative memory collage</h3>
+      <div class="meta">
+        <span><b>Time:</b> 45–60 minutes</span>
+        <span><b>Group:</b> Youth and older adults</span>
+        <span><b>Difficulty:</b> Beginner</span>
+      </div>
+
+      <details open>
+        <summary>You'll need</summary>
+        <ul>
+          <li>Magazines</li><li>Colored paper</li><li>Scissors (include easy-grip pairs)</li><li>Glue sticks</li><li>Markers</li>
+        </ul>
+      </details>
+      <details>
+        <summary>Before the session</summary>
+        <ul>
+          <li>Pre-sort magazine images into a few themes so choosing is easier.</li>
+          <li>Set up tables so youth and older adults sit next to each other.</li>
+        </ul>
+      </details>
+      <details>
+        <summary>During the session</summary>
+        <ol>
+          <li>Introduce yourself and the activity.</li>
+          <li>Invite participants to choose images.</li>
+          <li>Encourage youth and older adults to work together on one collage.</li>
+          <li>Use the conversation starters below.</li>
+          <li>Give everyone time to share their creations.</li>
+        </ol>
+      </details>
+      <details>
+        <summary>Conversation starters</summary>
+        <p class="prompt">What does this image remind you of?</p>
+        <p class="prompt">What was something you enjoyed doing when you were young?</p>
+        <p class="prompt">Is there a tradition that is important to you?</p>
+      </details>
+      <details>
+        <summary>After the session</summary>
+        <p>Ask the youth: what did you learn from the person you worked with?</p>
+      </details>
+    </article>
+    <p class="more">More activity guides are on the way.</p>
+  </div>
+</section>
+
+<!-- YOUTH GUIDE -->
+<section id="guide">
+  <div class="wrap">
+    <h2>Youth guide</h2>
+    <p class="principle">Don't just lead the activity. Build the relationship.</p>
+    <div class="two dodont">
+      <div class="do">
+        <h3>Do</h3>
+        <ul>
+          <li>Learn about the community before you visit.</li>
+          <li>Prepare flexible activities.</li>
+          <li>Bring extra materials.</li>
+          <li>Think about accessibility.</li>
+          <li>Prepare conversation questions.</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <h3>Don't</h3>
+        <ul>
+          <li>Assume what older adults can or can't do.</li>
+          <li>Treat participants as passive recipients.</li>
+          <li>Focus only on finishing the craft.</li>
+          <li>Assume everyone has the same interests or abilities.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- YOUTH VOICES -->
+<section id="voices">
+  <div class="wrap">
+    <h2>What we learned</h2>
+    <div class="quotes">
+      <blockquote>I came to teach, but I ended up learning.</blockquote>
+      <blockquote>I realized we had more in common than I expected.</blockquote>
+      <blockquote>The art gave us something to talk about.</blockquote>
+    </div>
+    <div class="change">
+      <div class="before">
+        <h3>Before</h3>
+        <p>"I wasn't sure what to talk about with older adults."</p>
+      </div>
+      <div class="after">
+        <h3>After</h3>
+        <p>"Conversation happens naturally when we're doing something together."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="wrap">
+    <h2>Resources</h2>
+    <p>Free printable guides for youth groups and senior living communities.</p>
+    <ul class="files">
+      <li>Youth facilitator guide <span class="soon">Coming soon</span></li>
+      <li>Activity planning worksheet <span class="soon">Coming soon</span></li>
+      <li>Conversation cards <span class="soon">Coming soon</span></li>
+      <li>Reflection worksheet <span class="soon">Coming soon</span></li>
+      <li>Senior living partnership guide <span class="soon">Coming soon</span></li>
+      <li>Program evaluation form <span class="soon">Coming soon</span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Bridges Through Art — creating, connecting, and learning across generations.</p>
+    <p>Want to partner with us? <a href="mailto:hello@example.com">hello@example.com</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
