@@ -7,7 +7,8 @@
 <meta name="description" content="A youth-led toolkit for meaningful intergenerational engagement through creative activities with older adults.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Young+Serif&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<!-- Inter 폰트 적용 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#EEF1E8;      /* sage paper */
@@ -18,8 +19,8 @@
     --plum:#7A3E65;
     --teal:#2E7D78;
     --line:#C9D1C0;
-    --serif:"Young Serif", Georgia, "Times New Roman", serif;
-    --sans:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --serif:"Inter", system-ui, -apple-system, sans-serif; /* 헤딩도 깔끔한 Inter로 통일 */
+    --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *{box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -28,7 +29,7 @@
   img{max-width:100%;display:block}
   a{color:var(--teal)}
   a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--marigold);outline-offset:3px;border-radius:4px}
-  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:0 0 .5em}
+  h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.15;margin:0 0 .5em}
   h2{font-size:clamp(1.9rem,4vw,2.6rem)}
   h3{font-size:1.35rem}
   p{margin:0 0 1em;max-width:66ch}
@@ -38,7 +39,7 @@
   /* Nav */
   header.nav{position:sticky;top:0;z-index:10;background:rgba(238,241,232,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-top:.8rem;padding-bottom:.8rem;flex-wrap:wrap}
-  .brand{font-family:var(--serif);font-size:1.2rem;color:var(--ink);text-decoration:none}
+  .brand{font-family:var(--serif);font-size:1.2rem;color:var(--ink);text-decoration:none;font-weight:700;}
   .nav ul{list-style:none;display:flex;gap:1.25rem;margin:0;padding:0;flex-wrap:wrap}
   .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
   .nav a.link:hover{color:var(--plum)}
@@ -55,7 +56,6 @@
     color: #ffffff;
     overflow: hidden;
   }
-  /* 그림 위 글자의 가독성을 높이기 위해 어두운 배경 오버레이 추가 */
   .hero-banner::after {
     content: '';
     position: absolute;
@@ -70,7 +70,7 @@
   }
   .hero-banner h1 {
     font-size: clamp(2.8rem, 6vw, 4.8rem);
-    letter-spacing: -.01em;
+    letter-spacing: -.02em;
     margin-bottom: .3em;
     color: #ffffff;
   }
@@ -92,13 +92,13 @@
   /* Story */
   .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;padding:0;list-style:none}
   .facts li{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.45rem 1rem;font-weight:500}
-  .facts strong{font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-right:.3rem;color:var(--plum)}
+  .facts strong{font-family:var(--serif);font-weight:700;font-size:1.15rem;margin-right:.3rem;color:var(--plum)}
   .two{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
 
-  /* Steps (a real sequence, so numbered) */
+  /* Steps */
   .steps{list-style:none;counter-reset:s;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem}
   .steps li{counter-increment:s;background:#fff;border-left:5px solid var(--teal);padding:1rem 1.1rem;border-radius:2px}
-  .steps li::before{content:counter(s);font-family:var(--serif);font-size:1.6rem;color:var(--teal);display:block;line-height:1}
+  .steps li::before{content:counter(s);font-family:var(--serif);font-size:1.6rem;font-weight:700;color:var(--teal);display:block;line-height:1}
   .steps b{display:block;margin:.35rem 0 .2rem}
   .steps span{color:var(--muted);font-size:.95rem}
 
@@ -110,14 +110,14 @@
   details:last-of-type{border-bottom:1px solid var(--line)}
   summary{cursor:pointer;font-weight:700;list-style:none;display:flex;justify-content:space-between}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";font-family:var(--serif);font-size:1.3rem;line-height:1;color:var(--plum)}
+  summary::after{content:"+";font-size:1.3rem;line-height:1;color:var(--plum)}
   details[open] summary::after{content:"–"}
   details ul,details ol{margin:.8rem 0 .2rem;padding-left:1.3rem}
-  .prompt{font-family:var(--serif);font-size:1.1rem;margin:.6rem 0;padding-left:1rem;border-left:3px solid var(--marigold)}
+  .prompt{font-size:1.1rem;margin:.6rem 0;padding-left:1rem;border-left:3px solid var(--marigold);font-weight:500;}
   .more{margin-top:1.5rem;color:var(--muted)}
 
   /* Youth guide */
-  .principle{font-family:var(--serif);font-size:clamp(1.5rem,3.4vw,2.2rem);background:var(--ink);color:#fff;padding:2rem;border-radius:10px;margin:2rem 0 2.5rem;max-width:none}
+  .principle{font-size:clamp(1.5rem,3.4vw,2.2rem);background:var(--ink);color:#fff;padding:2rem;border-radius:10px;margin:2rem 0 2.5rem;max-width:none;font-weight:700;}
   .dodont h3{display:flex;align-items:center;gap:.5rem}
   .dodont ul{padding-left:1.2rem;margin:0}
   .dodont li{margin-bottom:.4rem}
@@ -125,13 +125,13 @@
 
   /* Voices */
   .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.2rem;margin-top:2rem}
-  blockquote{margin:0;background:#fff;padding:1.5rem;border-radius:10px;font-family:var(--serif);font-size:1.2rem;line-height:1.4;border-top:6px solid var(--marigold)}
+  blockquote{margin:0;background:#fff;padding:1.5rem;border-radius:10px;font-size:1.2rem;line-height:1.4;border-top:6px solid var(--marigold);font-weight:500;}
   blockquote:nth-child(2){border-top-color:var(--teal)}
   blockquote:nth-child(3){border-top-color:var(--plum)}
   .change{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:2rem}
   .change div{padding:1.4rem;border-radius:10px}
   .before{background:#E1E6DA}.after{background:#fff;border:2px solid var(--teal)}
-  .change h3{font-size:1.05rem;font-family:var(--sans);font-weight:700;margin-bottom:.4rem}
+  .change h3{font-size:1.05rem;font-weight:700;margin-bottom:.4rem}
 
   /* Resources */
   .files{list-style:none;padding:0;margin:2rem 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:.8rem}
