@@ -43,7 +43,7 @@
   .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
   .nav a.link:hover{color:var(--plum)}
 
-  /* Hero with Centered Image Overlay */
+  /* Hero with Left-Aligned Image Overlay */
   .hero{padding:4.5rem 0 3rem;border-top:0}
   .hero-banner {
     position: relative;
@@ -51,15 +51,15 @@
     background-size: cover;
     background-position: center;
     border-radius: 16px;
-    padding: 6rem 2rem;
+    padding: 5rem 3rem;
     overflow: hidden;
     min-height: 500px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+    text-align: left; /* 텍스트 왼쪽 정렬 */
   }
-  /* 사진 위 반투명 어두운 오버레이 (여기서 투명도 조절 가능: 0.5) */
+  /* 사진 위 반투명 어두운 오버레이 (투명도 0.5) */
   .hero-banner::after {
     content: '';
     position: absolute;
@@ -70,11 +70,11 @@
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 750px;
-    margin: 0 auto;
+    max-width: 650px;
+    margin: 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
   }
   .hero-banner h1 {
     font-size: clamp(2.5rem, 5vw, 4.2rem);
@@ -88,21 +88,17 @@
     font-size: 1.25rem;
     color: #f0f4f8;
     max-width: 40ch;
-    margin-left: auto;
-    margin-right: auto;
   }
   .hero-banner .sub {
     color: #d9dee8;
     font-size: 1rem;
     max-width: 50ch;
-    margin-left: auto;
-    margin-right: auto;
   }
   .btns {
     display: flex;
     gap: .8rem;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start; /* 버튼 왼쪽 정렬 */
     margin-top: 1.5rem;
   }
   .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #ffffff}
@@ -168,7 +164,9 @@
     .two,.change{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .activity{padding:1.4rem}
-    .hero-banner { padding: 4rem 1.5rem; }
+    .hero-banner { padding: 3rem 1.5rem; justify-content: center; text-align: center; }
+    .hero-content { align-items: center; }
+    .btns { justify-content: center; }
   }
 </style>
 </head>
@@ -192,7 +190,7 @@
 
 <main id="top">
 
-<!-- HOME (Centered Image Overlay Banner) -->
+<!-- HOME (Left-Aligned Image Overlay Banner) -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-banner">
