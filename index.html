@@ -7,7 +7,6 @@
 <meta name="description" content="A youth-led toolkit for meaningful intergenerational engagement through creative activities with older adults.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Inter 폰트 적용 -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -19,7 +18,7 @@
     --plum:#7A3E65;
     --teal:#2E7D78;
     --line:#C9D1C0;
-    --serif:"Inter", system-ui, -apple-system, sans-serif; /* 헤딩도 깔끔한 Inter로 통일 */
+    --serif:"Inter", system-ui, -apple-system, sans-serif;
     --sans:"Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   }
   *{box-sizing:border-box}
@@ -44,7 +43,7 @@
   .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
   .nav a.link:hover{color:var(--plum)}
 
-  /* Hero with Image Overlay */
+  /* Hero with Clean Overlay Card */
   .hero{padding:4.5rem 0 3rem;border-top:0}
   .hero-banner {
     position: relative;
@@ -52,42 +51,44 @@
     background-size: cover;
     background-position: center;
     border-radius: 16px;
-    padding: 5rem 3rem;
-    color: #ffffff;
+    padding: 4rem 3rem;
     overflow: hidden;
-  }
-  .hero-banner::after {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(31, 42, 68, 0.75); 
-    z-index: 1;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
   }
   .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 700px;
+    background: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(12px);
+    padding: 3rem;
+    border-radius: 14px;
+    max-width: 620px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
   }
   .hero-banner h1 {
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
+    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
     letter-spacing: -.02em;
     margin-bottom: .3em;
-    color: #ffffff;
+    color: var(--ink);
+    line-height: 1.1;
   }
   .hero-banner .tag {
-    font-size: 1.35rem;
-    color: #f0f4f8;
-    max-width: 35ch;
+    font-size: 1.15rem;
+    color: var(--muted);
+    max-width: 100%;
   }
   .hero-banner .sub {
-    color: #d9dee8;
+    color: var(--muted);
+    font-size: 0.95rem;
   }
-  .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.8rem}
-  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #ffffff}
-  .btn.primary{background:#ffffff;color:var(--ink)}
-  .btn.primary:hover{background:var(--marigold);border-color:var(--marigold);color:var(--ink)}
-  .btn.ghost{color:#ffffff;border-color:#ffffff}
-  .btn.ghost:hover{background:rgba(255,255,255,0.1)}
+  .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
+  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
+  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn.primary:hover{background:var(--plum);border-color:var(--plum)}
+  .btn.ghost{color:var(--ink);border-color:var(--ink)}
+  .btn.ghost:hover{background:rgba(31, 42, 68, 0.05)}
 
   /* Story */
   .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;padding:0;list-style:none}
@@ -146,7 +147,8 @@
     .two,.change{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .activity{padding:1.4rem}
-    .hero-banner { padding: 3rem 1.5rem; }
+    .hero-banner { padding: 2rem 1rem; }
+    .hero-content { padding: 2rem 1.5rem; }
   }
 </style>
 </head>
@@ -170,7 +172,7 @@
 
 <main id="top">
 
-<!-- HOME (Image Overlay Banner) -->
+<!-- HOME (Image with Clean Overlay Card) -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-banner">
