@@ -43,7 +43,7 @@
   .nav a.link{color:var(--ink);text-decoration:none;font-weight:500;font-size:.95rem}
   .nav a.link:hover{color:var(--plum)}
 
-  /* Hero with Clean Overlay Card */
+  /* Hero with Centered Image Overlay */
   .hero{padding:4.5rem 0 3rem;border-top:0}
   .hero-banner {
     position: relative;
@@ -51,45 +51,65 @@
     background-size: cover;
     background-position: center;
     border-radius: 16px;
-    padding: 4rem 3rem;
+    padding: 6rem 2rem;
     overflow: hidden;
     min-height: 500px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  /* 사진 위 반투명 어두운 오버레이 (여기서 투명도 조절 가능: 0.5) */
+  .hero-banner::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(31, 42, 68, 0.5); 
+    z-index: 1;
   }
   .hero-content {
     position: relative;
     z-index: 2;
-    background: rgba(255, 255, 255, 0.90);
-    backdrop-filter: blur(12px);
-    padding: 3rem;
-    border-radius: 14px;
-    max-width: 620px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+    max-width: 750px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .hero-banner h1 {
-    font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+    font-size: clamp(2.5rem, 5vw, 4.2rem);
     letter-spacing: -.02em;
     margin-bottom: .3em;
-    color: var(--ink);
+    color: #ffffff;
     line-height: 1.1;
-    white-space: nowrap; /* 줄바꿈 방지 속성 추가 */
+    white-space: nowrap;
   }
   .hero-banner .tag {
-    font-size: 1.15rem;
-    color: var(--muted);
-    max-width: 100%;
+    font-size: 1.25rem;
+    color: #f0f4f8;
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
   }
   .hero-banner .sub {
-    color: var(--muted);
-    font-size: 0.95rem;
+    color: #d9dee8;
+    font-size: 1rem;
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .btns{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
-  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid var(--ink)}
-  .btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}
-  .btn.primary:hover{background:var(--plum);border-color:var(--plum)}
-  .btn.ghost{color:var(--ink);border-color:var(--ink)}
-  .btn.ghost:hover{background:rgba(31, 42, 68, 0.05)}
+  .btns {
+    display: flex;
+    gap: .8rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1.5rem;
+  }
+  .btn{display:inline-block;padding:.85rem 1.4rem;border-radius:999px;font-weight:700;text-decoration:none;border:2px solid #ffffff}
+  .btn.primary{background:#ffffff;color:var(--ink);border-color:#ffffff}
+  .btn.primary:hover{background:var(--marigold);border-color:var(--marigold);color:var(--ink)}
+  .btn.ghost{color:#ffffff;border-color:#ffffff}
+  .btn.ghost:hover{background:rgba(255, 255, 255, 0.1)}
 
   /* Story */
   .facts{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem;padding:0;list-style:none}
@@ -148,8 +168,7 @@
     .two,.change{grid-template-columns:1fr}
     section{padding:3.5rem 0}
     .activity{padding:1.4rem}
-    .hero-banner { padding: 2rem 1rem; }
-    .hero-content { padding: 2rem 1.5rem; }
+    .hero-banner { padding: 4rem 1.5rem; }
   }
 </style>
 </head>
@@ -173,7 +192,7 @@
 
 <main id="top">
 
-<!-- HOME (Image with Clean Overlay Card) -->
+<!-- HOME (Centered Image Overlay Banner) -->
 <section class="hero">
   <div class="wrap">
     <div class="hero-banner">
